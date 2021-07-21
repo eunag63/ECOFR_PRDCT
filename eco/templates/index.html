@@ -25,8 +25,34 @@
 
         <!-- style -->
         <style type="text/css">
+            .wrap2 {
+                width: 250px;
+            }
+            .category {
+                margin-left: 20px;
+                margin-top: 20px;
+                font-size: 18px;
+                font-weight: bolder;
+            }
+            .category_all {
+                margin-left: 20px;
+                margin-bottom: 10px;
+            }
+            .category_travel {
+                margin-left: 20px;
+                margin-top: 10px;
+            }
+
+            .card-body {
+                text-align: center;
+            }
+            .card-text {
+                font-size: 18px;
+                font-weight: bold;
+            }
 
         </style>
+
         <script>
             $(document).ready(function () {
                 showArticles();
@@ -47,8 +73,37 @@
     </head>
 
     <body>
-        <p>안녕하세요. 현선입니다.
-        신기하네요 ... 요즘 세상 </p>
+        <div class="wrap">
+            <div class="wrap2">
+                <p class="category">카테고리</p>
+                <hr style="border: solid 3px black;">
+                <p class="category_all">제품 전체보기</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">인기 검색어</li>
+                    <li class="list-group-item">LIVING</li>
+                    <li class="list-group-item">KITCHEN</li>
+                    <li class="list-group-item">BATHROOM</li>
+                    <li class="list-group-item">OFFICE</li>
+                    <li class="list-group-item">BOOKS</li>
+                    <li class="list-group-item">MARKET</li>
+                </ul>
+                <p class="category_travel">TRAVEL</p>
+                <hr style="border: solid 2px black;">
+            </div>
+
+            <div class="card-columns">
+                <div class="card">
+                    <img class="card-img-top"
+                         src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-text">유기농 온몸 비누</h5>
+                        <p style="color: dimgrey;">8,000원</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 
 </html>
