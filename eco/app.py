@@ -14,7 +14,7 @@ def home():
    return render_template('index.html')
 
 ## GET
-@app.route('/memo', methods=['GET'])
+@app.route('/eco', methods=['GET'])
 def listing():
     sample_receive = request.args.get('sample_give')
     print(sample_receive)
