@@ -9,27 +9,27 @@ driver.implicitly_wait(5)
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client.dbproject
-
-driver.get('http://onlyeco.co.kr/product/list.html?cate_no=68')
+# 덕분애 제로웨이스트샵
+driver.get('https://www.thanksto.co.kr/goods/goods_list.php?cateCd=009')
 
 html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')
 
 
-trs = soup.select('#contents > div.xans-element-.xans-product.xans-product-normalpackage > div.xans-element-.xans-product.xans-product-listnormal.ec-base-product > ul> li')
+trs = soup.select('#contents > div > div > div.goods_list_item > div.goods_list> ul> li')
+
 for tr in trs:
-    a_tag = tr.select_one('#anchorBoxId_264 > div > div.description > div.name > a')
+    a_tag = tr.select_one('div > div.item_info_cont > div.item_tit_box')
     if a_tag is not None:
         title = a_tag.text.strip()
-        img = tr.select_one('div > div.thumbnail > div.prdImg > a > img')['src']
+        img = tr.select_one('div > div.item_photo_box')['src']
         img2 = 'http:' + img
-        price = tr.select_one('div > div.description > ul > li:nth-child(1) > span:nth-child(2)').text
-        url = tr.select_one('div > div.thumbnail > div.prdImg > a')['href']
-        url2 = 'http://onlyeco.co.kr' + url
-        category = random.randint(1, 5)
+        price = tr.select_one('div > div.item_info_cont > div.item_money_box').text
+        url = tr.select_one('div > div.item_info_cont > div.item_tit_box > a')['href']
+        url2 = 'https://www.thanksto.co.kr/main/index.php' + url
+        category = random.randint(1,5)
 
         print(title, img2, price, url2, category)
-
 
         doc = {
             'title' : title,
