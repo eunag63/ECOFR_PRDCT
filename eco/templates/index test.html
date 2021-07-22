@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -41,8 +41,23 @@
 </head>
 
 <style>
-    .wrap2 {
-        width: 250px;
+    .nav {
+        font-size: 25px;
+        width: 980px;
+    }
+
+    .nav-link {
+        width: 200px;
+        color: black;
+    }
+
+    .popular {
+        margin: 30px 0px 30px 15px;
+    }
+
+    .text-decoration-none {
+        font-size: 18px;
+        color: cadetblue;
     }
 
     .category {
@@ -50,16 +65,6 @@
         margin-top: 20px;
         font-size: 18px;
         font-weight: bolder;
-    }
-
-    .category_all {
-        margin-left: 20px;
-        margin-bottom: 10px;
-    }
-
-    .category_travel {
-        margin-left: 20px;
-        margin-top: 10px;
     }
 
     .card-body {
@@ -75,11 +80,9 @@
         font-family: 'Roboto', Arial, sans-serif;
     }
 
-
     .all_body {
-        width:80%;
+        width: 80%;
         margin: 20px 150px 20px 150px;
-
     }
 
     .video {
@@ -92,7 +95,6 @@
         text-align: center;
         margin: 0px 0px 30px 0px;
     }
-
 
     .wrapper {
         width: 100%;
@@ -123,7 +125,7 @@
     }
 
     .small_title {
-
+        width: 30%;
         font-size: 18px;
     }
 
@@ -150,76 +152,189 @@
     #searchQuerySubmit:hover {
         cursor: pointer;
     }
-
 </style>
 
-
 <body>
+    <div class="all_body">
+        <h1 class="title">0 : waste </h1>
+        <p align="middle">
+            <iframe class="video" width="900" height="315" src="https://www.youtube.com/embed/sFiKP5tVbgg?controls=0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </p>
 
-<div class="all_body">
-    <h1 class="title">0 : waste </h1>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
-
-    <p align="middle">
-        <iframe class="video" width="900" height="315" src="https://www.youtube.com/embed/sFiKP5tVbgg?controls=0"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-    </p>
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
-    <div class="wrapper">
-        <div class="label">제로웨이스트를 실천할 수 있는 다양한 방법을 만나보세요</div>
-        <div class="searchBar">
-            <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="검색어를 입력하세요." value=""/>
-            <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                    <path fill="#666666"
-                          d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
-                </svg>
-            </button>
+        <div class="wrapper">
+            <div class="label">제로웨이스트를 실천할 수 있는 다양한 방법을 만나보세요.</div>
+            <div class="searchBar">
+                <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="검색어를 입력하세요." value=""/>
+                <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="#666666"
+                              d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-    </div>
 
-    <div class="wrap">
-        <div class="wrap2">
+        <div>
+            <ul class="nav">
+                <il style="width: 280px;">
+                    <a class="nav-link active" aria-current="page" href="#">대체 가능한 제품</a>
+                </il>
+                <il>
+                    <a class="nav-link" href="#">카테고리</a>
+                </il>
+                <il>
+                    <a class="nav-link" href="#">커뮤니티</a>
+                </il>
+            </ul>
+        </div>
+
+        <div class="popular">
+            <h3 style="font-weight: bold; margin-bottom: 20px;">인기 검색어</h3>
+            <p>
+                <a href="#" class="text-decoration-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-hash" viewBox="0 0 16 16">
+                        <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
+                    </svg>스테인리스빨대
+                </a>
+            </p>
+
+            <div class="row row-cols-1 row-cols-md-5 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                             src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-text">유기농 온몸 비누</h5>
+                            <p style="color: dimgrey;">8,000원</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                             src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-text">유기농 온몸 비누</h5>
+                            <p style="color: dimgrey;">8,000원</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                             src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-text">유기농 온몸 비누</h5>
+                            <p style="color: dimgrey;">8,000원</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                             src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-text">유기농 온몸 비누</h5>
+                            <p style="color: dimgrey;">8,000원</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                <div class="card h-100">
+                    <img class="card-img-top"
+                         src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-text">유기농 온몸 비누</h5>
+                        <p style="color: dimgrey;">8,000원</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div style="width: 250px;">
             <p class="category">카테고리</p>
             <hr style="border: solid 3px black;">
-            <p class="category_all">제품 전체보기</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">인기 검색어</li>
-                <li class="list-group-item">LIVING</li>
-                <li class="list-group-item">KITCHEN</li>
-                <li class="list-group-item">BATHROOM</li>
-                <li class="list-group-item">OFFICE</li>
-                <li class="list-group-item">BOOKS</li>
-                <li class="list-group-item">MARKET</li>
-            </ul>
-            <p class="category_travel">TRAVEL</p>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">제품 전체보기</a>
+                <a href="#" class="list-group-item list-group-item-action">인기 검색어</a>
+                <a href="#" class="list-group-item list-group-item-action">LIVING</a>
+                <a href="#" class="list-group-item list-group-item-action">KITCHEN</a>
+                <a href="#" class="list-group-item list-group-item-action">BATHROOM</a>
+                <a href="#" class="list-group-item list-group-item-action">OFFICE</a>
+                <a href="#" class="list-group-item list-group-item-action">BOOKS</a>
+                <a href="#" class="list-group-item list-group-item-action">MARKET</a>
+                <a href="#" class="list-group-item list-group-item-action">TRAVEL</a>
+            </div>
             <hr style="border: solid 2px black;">
         </div>
 
-        <div class="card-columns">
-            <div class="card">
-                <img class="card-img-top"
-                     src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
-                     alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-text">유기농 온몸 비누</h5>
-                    <p style="color: dimgrey;">8,000원</p>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img class="card-img-top"
+                         src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-text">유기농 온몸 비누</h5>
+                        <p style="color: dimgrey;">8,000원</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img class="card-img-top"
+                         src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-text">유기농 온몸 비누</h5>
+                        <p style="color: dimgrey;">8,000원</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img class="card-img-top"
+                         src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-text">유기농 온몸 비누</h5>
+                        <p style="color: dimgrey;">8,000원</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img class="card-img-top"
+                         src="https://cdn.imweb.me/thumbnail/20201008/43ac538c41a72.jpg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-text">유기농 온몸 비누</h5>
+                        <p style="color: dimgrey;">8,000원</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div>
-        <h4>제로웨이스트 라이프스타일(포스트, 칼럼 등) </h4>
-        <div><img class="image" src="https://tbc.imgdl.xcache.kinxcdn.com/cdn001/20201008/176141_1022%20life-2.jpg"/>
-            <p class="small_title">[루프임팩트 매거진] 더이상 미룰 수 없는 쓰레기 이야기</p>
+        <div style="margin-top: 100px;">
+            <h3 style="font-weight: bold;">제로웨이스트 라이프</h3>
+            <div>
+                <img class="image" src="https://tbc.imgdl.xcache.kinxcdn.com/cdn001/20201008/176141_1022%20life-2.jpg">
+                <p class="small_title">[루프임팩트 매거진] 더이상 미룰 수 없는 쓰레기 이야기</p>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
 </html>
