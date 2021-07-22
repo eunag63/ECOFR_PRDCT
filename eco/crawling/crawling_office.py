@@ -7,7 +7,7 @@ driver.implicitly_wait(5)
 
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
-db = client.dbsparta
+db = client.dbproject
 #자연상점
 driver.get('http://onlyeco.co.kr/category/%EC%82%AC%EB%AC%B4%EC%9A%A9%ED%92%88/54/?cate_no=54&sort_method=5#Product_ListMenu')
 
@@ -38,4 +38,4 @@ for tr in trs:
             'like': 0,
             'category': category
         }
-        db.maybes.insert_one(doc)
+        db.crawling.insert_one(doc)

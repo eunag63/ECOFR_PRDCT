@@ -8,7 +8,7 @@ driver.implicitly_wait(5)
 
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
-db = client.dbsparta
+db = client.dbproject
 # 덕분애 제로웨이스트샵
 driver.get('https://www.thanksto.co.kr/goods/goods_list.php?cateCd=009005&sort=date&pageNum=20')
 
@@ -40,4 +40,4 @@ for tr in trs:
             'like': 0,
             'category': category
         }
-        db.maybes.insert_one(doc)
+        db.crawling.insert_one(doc)

@@ -7,7 +7,7 @@ driver.implicitly_wait(5)
 
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
-db = client.dbsparta
+db = client.dbproject
 #더피커
 driver.get('https://thepicker.net/LIVING')
 
@@ -36,5 +36,5 @@ for tr in trs:
             'category': category
 
         }
-        db.maybes.insert_one(doc)
+        db.crawling.insert_one(doc)
 
