@@ -30,7 +30,7 @@
         function showArticles() {
             $.ajax({
                 type: "GET",
-                url: "/re",
+                url: "/living/re",
                 data: {},
                 success: function (response) {
                     let prodct = response['products']
@@ -55,8 +55,8 @@
                     }
                 }
             })
-
         }
+
     </script>
 
 
@@ -291,24 +291,24 @@
         </div>
 
         <div style="width: 250px;">
-            <form action="" method="post">
+            <form action="" method="POST">
                 <p class="category">카테고리</p>
                 <hr style="border: solid 2px black;">
                 <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">제품 전체보기</a>
-                <a href="#" class="list-group-item list-group-item-action">인기 검색어</a>
-                <a href="/living" class="list-group-item list-group-item-action">LIVING</a>
-                <a href="/kitchen" class="list-group-item list-group-item-action">KITCHEN</a>
-                <a href="#" class="list-group-item list-group-item-action">BATHROOM</a>
-                <a href="/office" class="list-group-item list-group-item-action">OFFICE</a>
-                <a href="#" class="list-group-item list-group-item-action">BOOKS</a>
-                <a href="#" class="list-group-item list-group-item-action">MARKET</a>
-                <a href="#" class="list-group-item list-group-item-action">TRAVEL</a>
-            </div>
-            <hr style="border: solid 2px black;">
 
+                    <a href="#" class="list-group-item list-group-item-action">제품 전체보기</a>
+                    <a href="#" class="list-group-item list-group-item-action">인기 검색어</a>
+                    <a href="/living" class="list-group-item list-group-item-action">LIVING</a>
+                    <a href="/kitchen" class="list-group-item list-group-item-action">KITCHEN</a>
+                    <a href="#" class="list-group-item list-group-item-action">BATHROOM</a>
+                    <a href="/office" class="list-group-item list-group-item-action">OFFICE</a>
+                    <a href="#" class="list-group-item list-group-item-action">BOOKS</a>
+                    <a href="#" class="list-group-item list-group-item-action">MARKET</a>
+                    <a href="#" class="list-group-item list-group-item-action">TRAVEL</a>
+                </div>
             </form>
 
+            <hr style="border: solid 2px black;">
         </div>
 
         <div class="row row-cols-1 row-cols-md-4 g-4" id="fullPage">
