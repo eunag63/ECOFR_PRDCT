@@ -57,7 +57,7 @@ def showArticles():
 @app.route('/eco', methods=['POST'])
 def like_heart():
     title_receive = request.form['title_give']
-    target_merchandise = db.crawling.find_one({'title': title_receive})
+    target_prodct = db.crawling.find_one({'title': title_receive})
     current_like = target_prodct['like']
     new_like = current_like + 1
     db.crawling.update_one({'title': title_receive}, {'$set': {'like': new_like}})
