@@ -60,7 +60,6 @@ def like_star():
     target_prodct = db.crawling.find_one({'title':title_receive})
     current_prodct = target_prodct['like']
     new_like = current_prodct + 1
-
     db.crawling.update_one({'title': title_receive}, {'$set': {'like' : new_like}})
     return jsonify({'msg': 'like!'})
 
