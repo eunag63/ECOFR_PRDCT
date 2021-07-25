@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import random
 
-driver = webdriver.Chrome('C:/Users/user/OneDrive/바탕 화면/chromedriver_win32')
+driver = webdriver.Chrome('/Users/euna/Downloads/chromedriver 2')
 driver.implicitly_wait(5)
 
 from pymongo import MongoClient
