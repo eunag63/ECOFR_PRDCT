@@ -117,6 +117,16 @@
             });
         }
 
+        // 검색기능 jquery
+        $("sample").on("keyup", function () {
+        });
+
+        $("sample").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("search_result").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
 
     </script>
 
