@@ -8,8 +8,10 @@ driver = webdriver.Chrome('/Users/euna/Downloads/chromedriver 2')
 driver.implicitly_wait(5)
 
 from pymongo import MongoClient
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
+# client = MongoClient('localhost', 27017)
 db = client.dbproject
+
 # 지구샵
 driver.get('https://www.jigushop.co.kr/kitchen')
 
