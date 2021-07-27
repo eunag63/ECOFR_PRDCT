@@ -24,6 +24,7 @@
         $(document).ready(function () {
             showArticles();
             showHeart();
+            showColumn();
         });
 
         function showArticles() {
@@ -112,6 +113,33 @@
                                             </div>
                                         </div>`
                         $('#top5').append(temp_html)
+                    }
+                }
+            });
+        }
+        //하단 보이기
+        function showColumn() {
+            $.ajax({
+                type: 'GET',
+                url: '/column',
+                data: {},
+                success: function (response) {
+                    let prodct = response['products']
+                    for (let i = 0; i < prodct.length; i++) {
+                        let title = prodct[i]['title']
+                        let img_url = prodct[i]['img']
+                        let url = prodct[i]['url']
+
+                        let temp_html = `<div class="col">
+                                            <div class="card">
+                                                <img src="${img_url}"
+                                                     class="card-img-top" alt="...">
+                                                <div class="card-body" onclick="window.open('${url}')">
+                                                    <h5 class="card-title">${title}</h5>
+                                                </div>
+                                            </div>
+                                        </div>`
+                        $('#foot3').append(temp_html)
                     }
                 }
             });
@@ -224,34 +252,8 @@
     <div class="tb_body">
             <h3 class="community">제로웨이스트 라이프스타일(포스터, 칼럼 등)</h3>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card">
-                        <img src="https://tbc.imgdl.xcache.kinxcdn.com/cdn001/20201008/176141_1022%20life-2.jpg"
-                             class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">[루프임팩트 매거진] 더이상 미룰 수 없는 쓰레기 이야기</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="https://tbc.imgdl.xcache.kinxcdn.com/cdn001/20201008/176141_1022%20life-2.jpg"
-                             class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">[루프임팩트 매거진] 더이상 미룰 수 없는 쓰레기 이야기</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="https://tbc.imgdl.xcache.kinxcdn.com/cdn001/20201008/176141_1022%20life-2.jpg"
-                             class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">[루프임팩트 매거진] 더이상 미룰 수 없는 쓰레기 이야기</h5>
-                        </div>
-                    </div>
-                </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="foot3">
+<!--                하단 칼럼-->
             </div>
         </div>
     </div>

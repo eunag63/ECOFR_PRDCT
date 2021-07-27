@@ -80,7 +80,11 @@ def like_star():
     db.crawling.update_one({'title': title_receive}, {'$set': {'like' : new_like}})
     return jsonify({'msg': 'like!'})
 
-
+## 하단 나타내기
+@app.route('/column', methods=['GET'])
+def showColumn():
+    product = list(db.columns.find({}, {'_id': False}).limit(3))
+    return jsonify({'products': product})
 
 if __name__ == '__main__':
    app.run('0.0.0.0',port=5000,debug=True)
