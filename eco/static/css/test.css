@@ -1,19 +1,37 @@
 /* Button */
-.search_symbol {
-    width: 24px;
-    height: 24px;
+#fullPage { width: 82%; }
+
+.category_margin {
+    width: 18%;
+    margin-right: 28px;
 }
 
 .heart {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 15px;
 }
 
-.btn-primary {
-    color: pink;
-    background: white;
-    border-color: pink;
+.like {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    fill: #C1FF31FF;
+}
+.like:hover,
+.like:focus {
+    fill: #91ff31;
+}
+.like:active
+.like:visited,
+.like:active:focus,
+.like:active:hover {
+    fill: #c1ff31;
+    border-color: #639d34;
+}
+
+.search_symbol {
+    width: 24px;
+    height: 24px;
 }
 
 .category {
@@ -22,7 +40,6 @@
     font-size: 18px;
     font-weight: bolder;
 }
-
 
 .nav-link {
     display: flex;
@@ -33,6 +50,7 @@
 .text-decoration-none {
     font-size: 18px;
     color: cadetblue;
+    margin-right: 20px;
 }
 
 
@@ -70,11 +88,6 @@
 
 .h-100 {
     position: relative;
-}
-
-.category_margin {
-    width: 40%;
-    margin-right: 20px;
 }
 
 
@@ -145,7 +158,7 @@ hr {
 }
 
 .community {
-    margin: 80px 0px 20px 0px;
+    margin: 80px 0px 30px 0px;
     font-weight: bold;
 }
 
@@ -165,7 +178,7 @@ hr {
     height: 2.8rem;
     background: #ffffff;
     outline: none;
-    border: 3px solid #bbb;
+    border: 3px solid #c1ff31;
     border-radius: 1.625rem;
     padding: 0 3.5rem 0 1.5rem;
     font-size: 1rem;
