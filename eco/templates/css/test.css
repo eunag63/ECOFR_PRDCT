@@ -1,12 +1,19 @@
-/* Heart Button */
 .like {
-    fill: white;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    fill: rgba(193, 255, 49, 0.76);
 }
 .like:hover,
 .like:focus {
     fill: #c1ff31;
 }
-
+.like:active
+.like:visited,
+.like:active:focus,
+.like:active:hover {
+    fill: #c1ff31;
+    border-color: #639d34;
+}
 
 /* Button */
 .search_symbol {
@@ -39,6 +46,7 @@
 .text-decoration-none {
     font-size: 18px;
     color: cadetblue;
+    margin-right: 20px;
 }
 
 
