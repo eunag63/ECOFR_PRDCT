@@ -114,17 +114,6 @@ hr {
     border: solid 2px black;
 }
 
-/*!*video*!*/
-/*.video{*/
-/*    width: 100%;*/
-/*}*/
-
-.video2 {
-    width: 100%;
-    authoplay
-}
-
-
 /* text */
 .label {
     font-size: 20px;
@@ -169,7 +158,6 @@ hr {
 
 .video2 {
     width: 100%;
-    authoplay
 }
 
 /* #searchQuery */
