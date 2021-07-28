@@ -1,4 +1,8 @@
 /* Button */
+.card-body {
+    cursor: pointer;
+}
+
 #fullPage { width: 82%; }
 
 .category_margin {
@@ -57,7 +61,7 @@
 /* container */
 .tb_body {
     width: 80%;
-    margin: 50px 155px 50px 150px;
+    margin: 50px 155px 70px 150px;
 }
 
 .m_body {
@@ -147,9 +151,17 @@ hr {
 }
 
 .community {
-    margin: 80px 0px 30px 0px;
+    margin: 80px 0px 50px 0px;
     font-weight: bold;
 }
+.ournames {
+    margin: 100px 0px 0px 0px;
+}
+
+.ournames_line {
+    border: solid 0.1px #d7d7d7;
+}
+
 
 /*!*video*!*/
 /*.video{*/
