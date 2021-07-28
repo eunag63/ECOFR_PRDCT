@@ -159,7 +159,18 @@ hr {
 }
 
 .ournames_line {
-    border: solid 0.1px #d7d7d7;
+    border: solid 0.1px #C1FF31FF;
+}
+.copyright {
+    text-align: right;
+    margin: 25px 0px 5px 0px;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.team_name {
+    text-align: right;
+    font-size: 13px;
+    color: dimgray;
 }
 
 
