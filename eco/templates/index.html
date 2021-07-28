@@ -153,7 +153,33 @@
                 }
             });
         }
+        // 슬라이드 기능
+        var slideIndex = 1;
+        showDivs(slideIndex);
 
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+          showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("demo");
+          if (n > x.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = x.length} ;
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+             dots[i].className = dots[i].className.replace(" w3-white", "");
+          }
+          x[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " w3-white";
+        }
     </script>
 
     <title>0:waste</title>
@@ -166,10 +192,21 @@
 
 <body>
     <div class="tb_body">
-            <iframe class="video2" width="560" height="315" src="https://www.youtube.com/embed/TUrfIdKbG_s" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+            <div class="w3-content w3-display-container">
+                <img class="mySlides" src="static/img/05.jpeg">
+                <img class="mySlides" src="static/img/07.jpeg">
+                <img class="mySlides" src="static/img/05.jpeg">
+                <iframe class="mySlides" src="https://player.vimeo.com/video/580265265" width="100%" frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                <div class="w3-center w3-display-bottomleft" style="width:100%">
+                    <div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
+                    <div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
+                    <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
+                    <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
+                    <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
+                    <span class="w3-badge demo w3-border" onclick="currentDiv(4)"></span>
+                </div>
+            </div>
 
     <!--     <video class="video" src="Homepage_video.mp4" controls autoplay></video>-->
 
