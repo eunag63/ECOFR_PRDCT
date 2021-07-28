@@ -84,6 +84,7 @@
                     data: {title_give: title},
                     success: function (response) {
                         alert(response['msg']);
+                        window.location.reload()
                     }
                 });
             }
@@ -152,17 +153,6 @@
                 }
             });
         }
-
-        // 검색기능 jquery
-        $("sample").on("keyup", function () {
-        });
-
-        $("sample").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $("search_result").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
 
     </script>
 
@@ -277,7 +267,7 @@
             <div class="list-group list-group-flush">
                 <h6 class="category">카테고리</h6>
                 <hr class="category_line">
-                <a href="#" class="list-group-item list-group-item-action">제품 전체보기</a>
+                <a href="/" class="list-group-item list-group-item-action">제품 전체보기</a>
                 <a href="#" class="list-group-item list-group-item-action">인기 검색어</a>
                 <a href="/living" class="list-group-item list-group-item-action">LIVING</a>
                 <a href="/kitchen" class="list-group-item list-group-item-action">KITCHEN</a>
