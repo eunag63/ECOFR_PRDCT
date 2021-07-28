@@ -209,9 +209,21 @@ hr {
 }
 
 /*슬라이드 기능*/
-.mySlides {
+.slide_img {
     display:none;
+    width: 1280px;
+    height: 528px;
+}
+.slide_video {
+    width: 1280px;
+    height: 528px;
+}
+.w3-center {
     width: 100%;
+}
+.mySlides_img {
+    width: 1280px;
+    height: 528px;
 }
 /*.w3-left, .w3-right, .w3-badge {cursor:pointer}*/
 /*.w3-badge {height:13px;width:13px;padding:0}*/
