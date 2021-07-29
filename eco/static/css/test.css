@@ -57,7 +57,7 @@
 
 .text-decoration-none {
     font-size: 18px;
-    color: cadetblue;
+    color: #31B404;
     margin-right: 20px;
 }
 
@@ -77,7 +77,9 @@
 .wrapper {
     width: 100%;
     max-width: 31.25rem;
-    margin: 30px auto;
+    margin: 30px auto 80px auto;
+    justify-content: center;
+
 }
 
 .nav {
@@ -183,17 +185,31 @@ hr {
 
 
 /* Next & previous buttons */
-.prev, .next {
+.prev {
+    position:
+    left: 280px;
     cursor: pointer;
-    position: absolute;
-    top: 25%;
-    width: auto;
-<<<<<<< HEAD
+    float: left;
+    height: 100%;
     margin-left: 20px;
-=======
->>>>>>> 7b8534bbd69a7647936ea20e4b729dd2f6ee2892
     padding: 8px 0px 8px 0px;
-    color: black;
+    width: 30px;
+    color: #C1FF31FF;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px;
+    user-select: none;
+}
+
+.next {
+    right: 280px;
+    cursor: pointer;
+    float: right;
+    top: 100%;
+    padding: 8px 0px 8px 0px;
+    width: 30px;
+    color: #C1FF31FF;
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
@@ -201,16 +217,10 @@ hr {
     user-select: none;
 }
 
-/* Position the "next button" to the right */
-.next {
-    right: 280px;
-    border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-    background-color: #C1FF31FF;
-}
+/*!* On hover, add a black background color with a little bit see-through *!*/
+/*.prev:hover, .next:hover {*/
+/*    background-color: black;*/
+/*}*/
 
 
 /* #searchQuery */
@@ -240,23 +250,23 @@ hr {
 
 /*슬라이드 기능*/
 .slide_img {
-    display: none;
-    width: 960px;
-    height: 411px;
-    margin:0 auto;
+    width: 1322px;
+    justify-content: center;
+
 }
 
 .slide_video {
-    width: 960px;
-    height: 411px;
-    margin:0 auto;
+    width: 1322px;
+    justify-content: center;
+    margin: 0px 0px 0px 0px;
 
-}
+/*.w3-display-container {*/
+/*    width: 80%;*/
+/*}*/
 
-.w3-display-container {
-    width: 80%;
-    margin: 0 auto;
-}
+/*.up_body {*/
+/*    object-fit: cover;*/
+/*}*/
 
 /*.w3-left, .w3-right, .w3-badge {cursor:pointer}*/
 /*.w3-badge {height:13px;width:13px;padding:0}*/
