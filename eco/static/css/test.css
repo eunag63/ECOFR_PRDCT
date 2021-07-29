@@ -3,7 +3,9 @@
     cursor: pointer;
 }
 
-#fullPage { width: 82%; }
+#fullPage {
+    width: 82%;
+}
 
 .category_margin {
     width: 18%;
@@ -21,10 +23,12 @@
     transition: all 0.5s;
     fill: #C1FF31FF;
 }
+
 .like:hover,
 .like:focus {
     fill: #91ff31;
 }
+
 .like:active
 .like:visited,
 .like:active:focus,
@@ -138,14 +142,15 @@ hr {
     font-weight: bold;
 }
 
-.card{
-    border-radius:30px;
-    border-color:transparent;
+.card {
+    border-radius: 30px;
+    border-color: transparent;
 }
 
-.card-img-top{
-    border-radius:30px;
+.card-img-top {
+    border-radius: 30px;
 }
+
 .price {
     color: dimgrey;
 }
@@ -154,6 +159,7 @@ hr {
     margin: 80px 0px 50px 0px;
     font-weight: bold;
 }
+
 .ournames {
     margin: 100px 0px 0px 0px;
 }
@@ -161,12 +167,14 @@ hr {
 .ournames_line {
     border: solid 0.1px #C1FF31FF;
 }
+
 .copyright {
     text-align: right;
     margin: 25px 0px 5px 0px;
     font-size: 14px;
     font-weight: bolder;
 }
+
 .team_name {
     text-align: right;
     font-size: 13px;
@@ -174,14 +182,12 @@ hr {
 }
 
 
-
 /* Next & previous buttons */
 .prev, .next {
     cursor: pointer;
     position: absolute;
     top: 25%;
-    width: 0 auto%;
-    margin-left: 20px;
+    width: auto;
     padding: 8px 0px 8px 0px;
     color: black;
     font-weight: bold;
@@ -231,18 +237,22 @@ hr {
 /*슬라이드 기능*/
 .slide_img {
     display: none;
-    width:100%;
+    width: 960px;
+    height: 411px;
+    margin:0 auto;
 }
 
 .slide_video {
-    width:100%
+    width: 960px;
+    height: 411px;
+    margin:0 auto;
 
 }
 
-.mySlides_img {
+.w3-display-container {
+    width: 80%;
     margin: 0 auto;
 }
-
 
 /*.w3-left, .w3-right, .w3-badge {cursor:pointer}*/
 /*.w3-badge {height:13px;width:13px;padding:0}*/
