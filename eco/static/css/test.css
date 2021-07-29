@@ -186,12 +186,19 @@ hr {
 
 /* Next & previous buttons */
 .prev {
+<<<<<<< HEAD
     position:
+=======
+>>>>>>> 0989663558b3110bd8fb4a66722b41d972da2bef
     left: 280px;
     cursor: pointer;
     float: left;
     height: 100%;
+<<<<<<< HEAD
     margin-left: 20px;
+=======
+    margin-left: 10px;
+>>>>>>> 0989663558b3110bd8fb4a66722b41d972da2bef
     padding: 8px 0px 8px 0px;
     width: 30px;
     color: #C1FF31FF;
@@ -203,6 +210,7 @@ hr {
 }
 
 .next {
+
     right: 280px;
     cursor: pointer;
     float: right;
@@ -253,17 +261,31 @@ hr {
     width: 1322px;
     justify-content: center;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0989663558b3110bd8fb4a66722b41d972da2bef
 }
 
 .slide_video {
     width: 1322px;
     justify-content: center;
+<<<<<<< HEAD
     margin: 0px 0px 0px 0px;
+=======
+>>>>>>> 0989663558b3110bd8fb4a66722b41d972da2bef
 
 /*.w3-display-container {*/
 /*    width: 80%;*/
 /*}*/
 
+<<<<<<< HEAD
+=======
+/*.w3-display-container {*/
+/*    width: 80%;*/
+/*}*/
+
+>>>>>>> 0989663558b3110bd8fb4a66722b41d972da2bef
 /*.up_body {*/
 /*    object-fit: cover;*/
 /*}*/
