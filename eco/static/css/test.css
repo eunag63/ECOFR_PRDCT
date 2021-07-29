@@ -180,7 +180,7 @@ hr {
     cursor: pointer;
     position: absolute;
     top: 25%;
-    width: 0 auto%;
+    width: auto;
     margin-left: 20px;
     padding: 8px 0px 8px 0px;
     color: black;
