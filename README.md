@@ -30,6 +30,9 @@
 - [x] AWS 구동
 
 ### Update
+* 2021-08-01
+  - 추가 : AWS 구동
+
 
 ### Links
 * [팀 기록](https://grape-dime-406.notion.site/11-11-47742cffba134faa997e8d281b3edae7)
