@@ -40,6 +40,60 @@
             });
         });
 
+
+
+        // 카테고리
+        filterSelection("all")
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        // Show filtered elements
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        // Hide elements that are not selected
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current control button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+
+
         function showArticles() {
             // 중간 메인
             $.ajax({
@@ -53,8 +107,9 @@
                         let img_url = prodct[i]['img']
                         let price = prodct[i]['price']
                         let url = prodct[i]['url']
+                        let category = prodct[i]['category']
 
-                        let temp_html = `<div class="col" id="search_result">
+                        let temp_html = `<div class="filterDiv ${category}" id="search_result">
                                             <div class="card h-100" >
                                                 <img class="card-img-top"
                                                      src="${img_url}"
@@ -78,17 +133,19 @@
             })
 
         }
+
         function likeheart(title) {
-                $.ajax({
-                    type: 'POST',
-                    url: '/re/like',
-                    data: {title_give: title},
-                    success: function (response) {
-                        alert(response['msg']);
-                        window.location.reload()
-                    }
-                });
-            }
+            $.ajax({
+                type: 'POST',
+                url: '/re/like',
+                data: {title_give: title},
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload()
+                }
+            });
+        }
+
         function showHeart() {
             $.ajax({
                 type: 'GET',
@@ -127,6 +184,7 @@
                 }
             });
         }
+
         //하단 보이기
         function showColumn() {
             $.ajax({
@@ -154,196 +212,217 @@
                 }
             });
         }
+
         // 슬라이드 기능
         var slideIndex = 1;
         showDivs(slideIndex);
 
         function plusDivs(n) {
-          showDivs(slideIndex += n);
+            showDivs(slideIndex += n);
         }
 
         function currentDiv(n) {
-          showDivs(slideIndex = n);
+            showDivs(slideIndex = n);
         }
 
         function showDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("demo");
-          if (n > x.length) {slideIndex = 1}
-          if (n < 1) {slideIndex = x.length} ;
-          for (i = 0; i < x.length; i++) {
-             x[i].style.display = "none";
-          }
-          for (i = 0; i < dots.length; i++) {
-             dots[i].className = dots[i].className.replace(" w3-white", "");
-          }
-          x[slideIndex-1].style.display = "block";
-          dots[slideIndex-1].className += " w3-white";
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = x.length
+            }
+            ;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
         }
     </script>
 
     <title>0:waste</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/test.css') }}" />
-<!--    <link rel="stylesheet" type="text/css" href="css/test.css" /> css/test.css-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/test.css') }}"/>
+    <!--    <link rel="stylesheet" type="text/css" href="css/test.css" /> css/test.css-->
 </head>
 
 <style>
 </style>
 
 <body>
-    <div class="tb_body">
-            <div class="w3-content w3-display-container">
+<!-- Default Statcounter code for YoungWasteSite http://youngwaste.shop/ -->
+<script type="text/javascript">
+var sc_project=12574366;
+var sc_invisible=1;
+var sc_security="0d8e2534";
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12574366/0/0d8e2534/1/" alt="Web
+Analytics"></a></div></noscript>
+<!-- End of Statcounter Code -->
 
-                <img class="mySlides slide_img" src="static/img/zerowaste logo motion.gif">
-                <img class="mySlides slide_img" src="static/img/07.jpeg">
-                <img class="mySlides slide_img" src="static/img/05.jpeg">
+<div class="tb_body">
+    <div class="w3-content w3-display-container">
 
-                <iframe class="mySlides slide_video" src="https://player.vimeo.com/video/580265265" frameborder="0"
-                        allow="autoplay; fullscreen; picture-in-picture"></iframe>
-                <div class="w3-center w3-display-bottomleft">
-                    <div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
-                    <div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
-                    <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
-                    <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
-                    <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
-                    <span class="w3-badge demo w3-border" onclick="currentDiv(4)"></span>
-                </div>
-            </div>
+        <img class="mySlides slide_img" src="static/img/zerowaste logo motion.gif">
+        <iframe class="mySlides slide_video"
+                src="https://player.vimeo.com/video/580610408?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                width="1920" height="822" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                title="홈페이지 영상 최종"></iframe>
+        <div class="w3-center w3-display-bottomleft">
+            <div class="prev" onclick="plusDivs(-1)">&#10094;</div>
+            <div class="next" onclick="plusDivs(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
+        </div>
+    </div>
 
     <!--     <video class="video" src="Homepage_video.mp4" controls autoplay></video>-->
 
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <div class="wrapper" id="sample">
+        <a name="main_tag"></a>
+        <div class="label">제로웨이스트를 실천할 수 있는 다양한 방법을 만나보세요.</div>
+        <div class="searchBar">
+            <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="검색어를 입력하세요." value=""/>
+            <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+                <svg class="search_symbol" viewBox="0 0 24 24">
+                    <path fill="#666666"
+                          d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                </svg>
+            </button>
 
-        <div class="wrapper" id="sample">
-            <a name="main_tag"></a>
-            <div class="label">제로웨이스트를 실천할 수 있는 다양한 방법을 만나보세요.</div>
-            <div class="searchBar">
-                  <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="검색어를 입력하세요." value=""/>
-                    <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit" >
-                        <svg class="search_symbol" viewBox="0 0 24 24">
-                            <path fill="#666666"
-                                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
-                        </svg>
-                    </button>
+            </form>
 
-                </form>
-
-            </div>
-        </div>
-
-        <div>
-            <ul class="nav">
-                <il>
-                    <a class="nav-link active" aria-current="page" href="#main_tag">대체 가능한 제품</a>
-                </il>
-                <il>
-                    <a class="nav-link" href="#category_tag">카테고리</a>
-                </il>
-                <il>
-                    <a class="nav-link" href="#community_tag">커뮤니티</a>
-                </il>
-            </ul>
-        </div>
-
-        <div class="popular">
-            <h3 class="popular_search">인기 검색어</h3>
-            <p>
-                <a href="#" class="text-decoration-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                         class="bi bi-hash" viewBox="0 0 16 16">
-                        <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
-                    </svg>
-                    스테인리스빨대
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                         class="bi bi-hash" viewBox="0 0 16 16">
-                        <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
-                    </svg>
-                    유기농비누
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                         class="bi bi-hash" viewBox="0 0 16 16">
-                        <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
-                    </svg>
-                    천연수세미
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                         class="bi bi-hash" viewBox="0 0 16 16">
-                        <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
-                    </svg>
-                    면마스크
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                         class="bi bi-hash" viewBox="0 0 16 16">
-                        <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
-                    </svg>
-                    에코백
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                         class="bi bi-hash" viewBox="0 0 16 16">
-                        <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
-                    </svg>
-                    행주
-                </a>
-            </p>
-
-            <div class="row row-cols-1 row-cols-md-5 g-4" id="top5">
-
-            </div>
         </div>
     </div>
 
-    <div class="m_body">
-        <a name="category_tag"></a>
-        <div class="category_margin">
-            <div class="list-group list-group-flush">
-                <h6 class="category">카테고리</h6>
-                <hr class="category_line">
-                <a href="/" class="list-group-item list-group-item-action">제품 전체보기</a>
-                <a href="#" class="list-group-item list-group-item-action">인기 검색어</a>
-                <a href="/living" class="list-group-item list-group-item-action">LIVING</a>
-                <a href="/kitchen" class="list-group-item list-group-item-action">KITCHEN</a>
-                <a href="/bathroom" class="list-group-item list-group-item-action">BATHROOM</a>
-                <a href="/office" class="list-group-item list-group-item-action">OFFICE</a>
-                <a href="/books" class="list-group-item list-group-item-action">BOOKS</a>
-                <a href="/market" class="list-group-item list-group-item-action">MARKET</a>
-                <a href="/travel" class="list-group-item list-group-item-action">TRAVEL</a>
+    <div>
+        <ul class="nav">
+            <il>
+                <a class="nav-link active" aria-current="page" href="#main_tag">대체 가능한 제품</a>
+            </il>
+            <il>
+                <a class="nav-link" href="#category_tag">카테고리</a>
+            </il>
+            <il>
+                <a class="nav-link" href="#community_tag">커뮤니티</a>
+            </il>
+        </ul>
+    </div>
 
-            </div>
+    <div class="popular">
+        <h3 class="popular_search">인기 검색어</h3>
+        <p>
+            <a href="#" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-hash" viewBox="0 0 16 16">
+                    <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
+                </svg>
+                스테인리스빨대
+            </a>
+            <a href="#" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-hash" viewBox="0 0 16 16">
+                    <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
+                </svg>
+                유기농비누
+            </a>
+            <a href="#" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-hash" viewBox="0 0 16 16">
+                    <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
+                </svg>
+                천연수세미
+            </a>
+            <a href="#" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-hash" viewBox="0 0 16 16">
+                    <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
+                </svg>
+                면마스크
+            </a>
+            <a href="#" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-hash" viewBox="0 0 16 16">
+                    <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
+                </svg>
+                에코백
+            </a>
+            <a href="#" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-hash" viewBox="0 0 16 16">
+                    <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"></path>
+                </svg>
+                행주
+            </a>
+        </p>
+
+        <div class="row row-cols-1 row-cols-md-5 g-4" id="top5">
+
+        </div>
+    </div>
+</div>
+
+<div class="m_body">
+    <a name="category_tag"></a>
+    <div class="category_margin">
+        <div class="list-group list-group-flush" id="myBtnContainer">
+            <h6 class="category">카테고리</h6>
             <hr class="category_line">
-        </div>
+<!--            <a href="/" class="list-group-item list-group-item-action">제품 전체보기</a>-->
+<!--            <a href="#" class="list-group-item list-group-item-action">인기 검색어</a>-->
+<!--            <a href="/living" class="list-group-item list-group-item-action">LIVING</a>-->
+<!--            <a href="/kitchen" class="list-group-item list-group-item-action">KITCHEN</a>-->
+<!--            <a href="/bathroom" class="list-group-item list-group-item-action">BATHROOM</a>-->
+<!--            <a href="/office" class="list-group-item list-group-item-action">OFFICE</a>-->
+<!--            <a href="/books" class="list-group-item list-group-item-action">BOOKS</a>-->
+<!--            <a href="/market" class="list-group-item list-group-item-action">MARKET</a>-->
+<!--            <a href="/travel" class="list-group-item list-group-item-action">TRAVEL</a>-->
 
-        <div class="row row-cols-2 row-cols-md-4 g-4" id="fullPage">
-
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('living')"> Living</button>
+            <button class="btn" onclick="filterSelection('kitchen')"> Kitchen</button>
         </div>
+        <hr class="category_line">
     </div>
 
-    <div class="tb_body">
-        <a name="community_tag"></a>
-            <h3 class="community">제로웨이스트 라이프스타일</h3>
+    <div class="container row row-cols-2 row-cols-md-4 g-4" id="fullPage">
 
-            <div class="row row-cols-1 row-cols-md-3 g-4" id="foot3">
-<!--                하단 칼럼-->
-            </div>
-
-        <div class="ournames">
-            <hr class="ournames_line">
-            <footer>
-                <p class="copyright">COPYRIGHT ⓒ 2021. 0:waste All rights reserved.</p>
-                <p class="team_name">
-                    <span>김은아&ensp;｜&ensp;김지용&ensp;｜&ensp;유현선&ensp;｜&emsp;윤이나</span>
-                </p>
-            </footer>
-
-        </div>
     </div>
+</div>
+
+<div class="tb_body">
+    <a name="community_tag"></a>
+    <h3 class="community">제로웨이스트 라이프스타일</h3>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="foot3">
+        <!—                하단 칼럼—>
+    </div>
+
+    <div class="ournames">
+        <hr class="ournames_line">
+        <footer>
+            <p class="copyright">COPYRIGHT ⓒ 2021. 0:waste All rights reserved.</p>
+            <p class="team_name">
+                <span>김은아&ensp;｜&ensp;김지용&ensp;｜&ensp;유현선&ensp;｜&emsp;윤이나</span>
+            </p>
+        </footer>
+
+    </div>
+</div>
+
 </body>
 </html>
