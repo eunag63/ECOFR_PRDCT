@@ -3,7 +3,9 @@
     cursor: pointer;
 }
 
-#fullPage { width: 82%; }
+#fullPage {
+    width: 82%;
+}
 
 .category_margin {
     width: 18%;
@@ -21,10 +23,12 @@
     transition: all 0.5s;
     fill: #C1FF31FF;
 }
+
 .like:hover,
 .like:focus {
     fill: #91ff31;
 }
+
 .like:active
 .like:visited,
 .like:active:focus,
@@ -73,7 +77,8 @@
 .wrapper {
     width: 100%;
     max-width: 31.25rem;
-    margin: 30px auto;
+    margin: 30px auto 80px auto;
+    padding: 10px;
 }
 
 .nav {
@@ -138,14 +143,15 @@ hr {
     font-weight: bold;
 }
 
-.card{
-    border-radius:30px;
-    border-color:transparent;
+.card {
+    border-radius: 30px;
+    border-color: transparent;
 }
 
-.card-img-top{
-    border-radius:30px;
+.card-img-top {
+    border-radius: 30px;
 }
+
 .price {
     color: dimgrey;
 }
@@ -154,6 +160,7 @@ hr {
     margin: 80px 0px 50px 0px;
     font-weight: bold;
 }
+
 .ournames {
     margin: 100px 0px 0px 0px;
 }
@@ -161,12 +168,14 @@ hr {
 .ournames_line {
     border: solid 0.1px #C1FF31FF;
 }
+
 .copyright {
     text-align: right;
     margin: 25px 0px 5px 0px;
     font-size: 14px;
     font-weight: bolder;
 }
+
 .team_name {
     text-align: right;
     font-size: 13px;
@@ -174,14 +183,43 @@ hr {
 }
 
 
-/*!*video*!*/
-/*.video{*/
-/*    width: 100%;*/
+/* Next & previous buttons */
+.prev {
+    /*left: 280px;*/
+    cursor: pointer;
+    float:left;
+    margin-left:10px;
+    padding:8px 0px 8px 0px;
+    width: 30px;
+    color: #C1FF31FF;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px;
+    user-select: none;
+}
+
+.next {
+
+    right: 280px;
+    cursor: pointer;
+    float: right;
+    top: 50%;
+    padding:8px 0px 8px 0px;
+    width: 30px;
+    color: #C1FF31FF;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px 3px 3px 3px;
+    user-select: none;
+}
+
+/*!* On hover, add a black background color with a little bit see-through *!*/
+/*.prev:hover, .next:hover {*/
+/*    background-color: black;*/
 /*}*/
 
-.video2 {
-    width: 100%;
-}
 
 /* #searchQuery */
 #searchQueryInput {
@@ -210,20 +248,36 @@ hr {
 
 /*슬라이드 기능*/
 .slide_img {
-    display:none;
-    width: 1280px;
-    height: 528px;
+    display: none;
+    width: 960px;
+    height: 411px;
+    margin: 0 auto;
 }
+
 .slide_video {
-    width: 1280px;
-    height: 528px;
+    width: 960px;
+    height: 411px;
+    margin: 0 auto;
+
 }
-.w3-center {
-    width: 100%;
+
+.w3-display-container {
+    width: 80%;
+    margin: 0 auto;
 }
-.mySlides_img {
-    width: 1280px;
-    height: 528px;
-}
+
 /*.w3-left, .w3-right, .w3-badge {cursor:pointer}*/
 /*.w3-badge {height:13px;width:13px;padding:0}*/
+
+/*카테고리*/
+.container {
+    overflow: hidden;
+}
+
+.filterDiv {
+    display: none;
+}
+
+.show {
+    display: block;
+}
